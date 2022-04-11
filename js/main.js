@@ -3,7 +3,6 @@ const getNumber = (min, max) => {
     return ('Не верный диапазон! Укажите другие значения.');
   }
   return Math.floor(Math.random() * (max - min + 1) + min);
-};
 
 getNumber(0, 140);
 
