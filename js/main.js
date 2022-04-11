@@ -3,7 +3,7 @@ const getNumber = (min, max) => {
     return ('Не верный диапазон! Укажите другие значения.');
   }
   return Math.floor(Math.random() * (max - min + 1) + min);
-}
+};
 
 getNumber(0, 140);
 
@@ -21,37 +21,37 @@ const authors = ['Аноним Иваныч', 'Василий', 'Николай'
 const getCommentsId = function() {
   while (commentsIdArray.length < COMMENTS_COUNT) {
     commentId = getNumber(1, 1000);
-    let isRepeatedNumber = commentsIdArray.some((value) => value === commentId);
+    const isRepeatedNumber = commentsIdArray.some((value) => value === commentId);
     if (!isRepeatedNumber) {
       commentsIdArray.push(commentId);
-    };
-  };
+    }
+  }
   return commentsIdArray;
 };
 
 const createCommentObject = () => {
-  let comments = [];
+  const comments = [];
   let comment;
   commentsIdArray = [];
   getCommentsId();
   for (let j = 0; j < commentsIdArray.length; j++) {
     comment = {
       'id': commentsIdArray[j],
-      'avatar': 'img/avatar-' + getNumber(1, 6) + '.svg',
+      'avatar': "img/avatar-" + getNumber(1, 6) + ".svg",
       'message': messageArray[getNumber(0, 5)],
       'name': authors[getNumber(0, 5)]
     };
     comments.push(comment);
-  };
+  }
   return comments;
 };
 
 const createPhotoObject = () => {
-  let photos = [];
+  const photos = [];
   let photo;
   for (let i = 1; i <= PHOTO_COUNT; i++) {
-    id = i;
-    url = 'photos/' + i + '.jpg';
+    let id = i;
+    let url = "photos/" + i + ".jpg";
     photo = {
       'id': id,
       'url': url,
@@ -60,7 +60,7 @@ const createPhotoObject = () => {
       'comments': createCommentObject()
     };
     photos.push(photo);
-  };
+  }
   return photos;
 };
 
